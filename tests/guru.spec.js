@@ -8,7 +8,7 @@ test('test', async ({ page }) => {
   const randomEmail = faker.internet.email();
   const randomPassword = faker.internet.password({ length: 10 });
 
-await page.goto('https://qa.guru');
+ await page.goto('https://realworld.qa.guru/');
   await page.getByRole('link', { name: 'Sign up' }).click();
   
   await page.getByRole('textbox', { name: 'Your Name' }).click();
