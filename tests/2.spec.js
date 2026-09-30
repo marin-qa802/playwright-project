@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
+import path from "path";
 
 //todo Нейминг теста
 test("Пользователь может заказать бургер", async ({ page }) => {
-  await page.goto("file:///Users/sniper/Downloads/burger-order.html");
+   const filePath = `file://${path.resolve('tests/burger-order.html')}`;
+  await page.goto(filePath);
 
   // разобраться почему так
   //Вариант 1
