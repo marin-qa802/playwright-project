@@ -27,4 +27,5 @@ test('Пользователь может заказать бургер', async 
   // Отправка формы и проверка
   await page.getByRole('button', { name: 'Заказать бургер' }).click();
   await expect(page.locator('#popupMessage')).toContainText('Спасибо за заказ, Марина!');
+  
 });
