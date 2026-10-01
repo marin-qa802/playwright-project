@@ -5,7 +5,7 @@ test('test', async ({ page }) => {
   const uniqueEmail = `user_${Date.now()}@test.ru`;
 
   // 1. Открываем главную страницу и переходим на форму регистрации
-  await page.goto('https://qa.guru');
+  await page.goto('https://realworld.qa.guru');
   await page.getByRole('link', { name: 'Sign up' }).click();
 
   // 2. Заполняем поля формы строго по одному разу
