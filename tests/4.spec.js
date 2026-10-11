@@ -1,59 +1,71 @@
 import { test, expect } from '@playwright/test';
-import { faker } from '@faker-js/faker';
 
-const user = {
-    email: faker.internet.email({provider: 'qa.guru' }),
-    name: faker.person.fullName(), // 'Allen Brown'
-    password: faker.internet.password({ length: 10 }),
-    method() {}
-}
+test('test', async ({ page }) => {
+  // Генерация уникального email, чтобы тест не падал при повторных запусках
+  const uniqueEmail = `user_${Date.now()}@test.ru`;
 
-/*
-const faker = {
-internet: {
-email() {
-}
-}
+  // 1. Открываем главную страницу и переходим на форму регистрации
+  await page.goto('https://realworld.qa.guru');
+  await page.getByRole('link', { name: 'Sign up' }).click();
 
-}
-*/
-// Переменные
-//let email = faker.internet.email({provider: 'qa.guru' });
-//let name = faker.person.fullName(); // 'Allen Brown'
-///let password  = faker.internet.password({ length: 10 });
+  // 2. Заполняем поля формы строго по одному разу
+  await page.getByRole('textbox', { name: 'Your Name' }).fill('qwert567');
+  await page.getByRole('textbox', { name: 'Email' }).fill(uniqueEmail);
+  await page.getByRole('textbox', { name: 'Password' }).fill('fffffffff7777');
 
-const url = 'https://realworld.qa.guru/';
+  // 3. Нажимаем кнопку регистрации один раз
+  await page.getByRole('button', { name: 'Sign up' }).click();
 
-const getRegistration = async (page, email, name, password, url) => {
-    await page.goto(url);
-    await page.getByRole('link', { name: 'Sign up' }).click();
-    await page.getByRole('textbox', { name: 'Your Name' }).click();
-    await page.getByRole('textbox', { name: 'Your Name' }).fill(name);
-    await page.getByRole('textbox', { name: 'Email' }).click();
-    await page.getByRole('textbox', { name: 'Email' }).fill(email);
-    await page.getByRole('textbox', { name: 'Password' }).click();
-    await page.getByRole('textbox', { name: 'Password' }).fill(password);
-    await page.getByRole('button', { name: 'Sign up' }).click();
-};
+  // 4. Ждем, пока завершатся сетевые запросы после клика
+  await page.waitForLoadState('networkidle');
 
-test('Пользователь может зарегистрироваться используя email и пароль v2', async ({ page }) => {
-    // Исправлено: Добавлен await перед асинхронной функцией
-    await getRegistration(page, user.email, user.name, user.password, url);  
-    await expect(page.getByRole('navigation')).toContainText(user.name);
+  // 5. Проверяем успешную авторизацию по имени пользователя в навигации
+  const userNameLink = page.locator('.navbar-nav').getByText('qwert567');
+  await expect(userNameLink).toBeVisible({ timeout: 10000 });
 });
 
-test('Пользователь может изменить свое имя в профиле', async ({ page }) => {
-    // Исправлено: Используем spread-оператор вместо structuredClone, чтобы избежать DataCloneError
-    const jsonCopy = { ...user };
+import { test, expect } from '@playwright/test';
 
-    console.log('jsonCopy');
-    console.log(jsonCopy);
-    
-    const { name, email, password } = jsonCopy;
+// 1. Функция для генерации уникального email
+function generateUniqueEmail() {
+  return `user_${Date.now()}@test.ru`;
+}
 
-    // Исправлено: Добавлен await перед асинхронной функцией
-    await getRegistration(page, email, name, password, url); 
-    
-    // todo Дописать тест на изменение имени в профиле 
-    await expect(page.getByRole('navigation')).toContainText(name);
+// 2. Функция для выполнения шагов регистрации
+async function registerUser(page, name, email, password) {
+  // Открываем главную страницу и переходим на форму регистрации
+  await page.goto('https://realworld.qa.guru');
+  await page.getByRole('link', { name: 'Sign up' }).click();
+
+  // Заполняем поля формы
+  await page.getByRole('textbox', { name: 'Your Name' }).fill(name);
+  await page.getByRole('textbox', { name: 'Email' }).fill(email);
+  await page.getByRole('textbox', { name: 'Password' }).fill(password);
+
+  // Нажимаем кнопку регистрации
+  await page.getByRole('button', { name: 'Sign up' }).click();
+
+  // Ждем, пока завершатся сетевые запросы
+  await page.waitForLoadState('networkidle');
+}
+
+// 3. Функция для проверки успешной авторизации
+async function verifyUserIsLoggedIn(page, userName) {
+  const userNameLink = page.locator('.navbar-nav').getByText(userName);
+  await expect(userNameLink).toBeVisible({ timeout: 10000 });
+}
+
+// --- Сам тест ---
+test('test', async ({ page }) => {
+  // Генерируем данные
+  const uniqueEmail = generateUniqueEmail();
+  const userName = 'qwert567';
+  const userPassword = 'ffffffffff7777';
+
+  // Вызываем функцию регистрации
+  await registerUser(page, userName, uniqueEmail, userPassword);
+
+  // Вызываем функцию проверки
+  await verifyUserIsLoggedIn(page, userName);
 });
+
