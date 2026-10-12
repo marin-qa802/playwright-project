@@ -1,26 +1,30 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('register, verify user name, logout and verify sign up form', async ({ page }) => {
+test("register, verify user name, logout and verify sign up form", async ({
+  page,
+}) => {
   // Открываем главную страницу и форму регистрации
-  await page.goto('https://realworld.qa.guru/');
-  await page.getByRole('link', { name: 'Sign up' }).click();
+  await page.goto("https://realworld.qa.guru/");
+  await page.getByRole("link", { name: "Sign up" }).click();
 
   // Инициализируем элементы формы
-  const nameInput = page.getByRole('textbox', { name: 'Your Name' });
-  const emailInput = page.getByRole('textbox', { name: 'Email' });
-  const passwordInput = page.getByRole('textbox', { name: 'Password' });
-  const signUpButton = page.getByRole('button', { name: 'Sign up' });
+  const nameInput = page.getByRole("textbox", { name: "Your Name" });
+  const emailInput = page.getByRole("textbox", { name: "Email" });
+  const passwordInput = page.getByRole("textbox", { name: "Password" });
+  const signUpButton = page.getByRole("button", { name: "Sign up" });
 
   // ИСПРАВЛЕНИЕ: Убрали экранирование \$, чтобы Email генерировался корректно
   const uniqueEmail = `test_${Math.random().toString(36).substring(2, 11)}@example.com`;
 
   // Заполняем форму валидными уникальными данными
-  await nameInput.fill('Test User');
+  await nameInput.fill("Test User");
   await emailInput.fill(uniqueEmail);
-  await passwordInput.fill('StrongPassword123');
+  await passwordInput.fill("StrongPassword123");
 
   // ИСПРАВЛЕНИЕ: Перехватываем запрос регистрации по правильному синтаксису Playwright
-  const responsePromise = page.waitForResponse(resp => resp.url().endsWith('/users'));
+  const responsePromise = page.waitForResponse((resp) =>
+    resp.url().endsWith("/users"),
+  );
 
   // Отправляем форму регистрации
   await signUpButton.click();
@@ -38,15 +42,15 @@ test('register, verify user name, logout and verify sign up form', async ({ page
   await expect(passwordInput).not.toBeVisible({ timeout: 10000 });
 
   // Находим имя пользователя внутри контейнера панели навигации по тексту
-  const userNameLink = page.locator('.navbar-nav').getByText('Test User');
+  const userNameLink = page.locator(".navbar-nav").getByText("Test User");
   await expect(userNameLink).toBeVisible({ timeout: 5000 });
 
   // Выполняем выход из профиля (Logout)
   await userNameLink.click();
   // Флаг force: true помогает избежать блокировок от незавершенных анимаций меню
-  await page.getByRole('link', { name: 'Logout' }).click({ force: true });
+  await page.getByRole("link", { name: "Logout" }).click({ force: true });
 
   // Финальные проверки разлогинивания
   await expect(userNameLink).not.toBeVisible();
-  await expect(page.getByRole('link', { name: 'Sign up' })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Sign up" })).toBeVisible();
 });
