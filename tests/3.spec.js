@@ -23,7 +23,7 @@ return password;
 }
 
  test.only('test', async ({ page }) => {
-    /*
+    
   const dogs =['Белка', 'Бонд', 'Кейси'];
   console.log(dogs);
   console.log(dogs[0]);
@@ -32,7 +32,7 @@ return password;
    console.log(dogs[dogs.length-1]);
     console.log(dogs.includes('Стрелка'));
     // arrange - предусловие - given
-    */
+   }
 
    /*
    heap stack

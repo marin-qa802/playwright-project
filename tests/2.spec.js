@@ -3,7 +3,7 @@ import path from "path";
 
 //todo Нейминг теста
 test("Пользователь может заказать бургер", async ({ page }) => {
-   const filePath = `file://${path.resolve('tests/burger-order.html')}`;
+  const filePath = `file://${path.resolve("tests/burger-order.html")}`;
   await page.goto(filePath);
 
   // разобраться почему так
