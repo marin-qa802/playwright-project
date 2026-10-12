@@ -34,28 +34,14 @@ return password;
     // arrange - предусловие - given
    }
 
-   /*
-   heap stack
-  
-   99 - память a1
-   let a=99; a1 
-   let b=a; a2
-
-    const arr = [''mnml.tech];
- [a3 ссылка на FEFEFE] -> ///idFEFEFE///
-
- arr
- [a4 ссылка на FEFEFE] -> ///idFEFEFE///
-
-   */
-  await page.goto(URL);
-  //await page.locator('.tag-pill').click();
+/*await page.goto(URL);
+await page.locator('.tag-pill').click();
   const tags = await page.locator('.tag-pill');
 
   console.log(tags);
   //await expect(tags).toHaveCount(53);
   await expect(tags).toHaveText(['depraedor']);
-
+});
 
 /*
 const cup = ['Чашка', 'Кружка', 'Бокал'];
@@ -94,4 +80,4 @@ console.log(courses[1]
 // assert - сравниваем фактический и ожидаемый then
   await expect(page.getByRole('navigation')).toContainText(email);
 */
-});
+
