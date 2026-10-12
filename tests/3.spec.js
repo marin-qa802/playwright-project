@@ -22,8 +22,8 @@ return password;
 // return faker.internet.password();
 }
 
- test.only('test', async ({ page }) => {
-    
+ test('test', async ({ page }) => {
+    /*
   const dogs =['Белка', 'Бонд', 'Кейси'];
   console.log(dogs);
   console.log(dogs[0]);
@@ -32,16 +32,30 @@ return password;
    console.log(dogs[dogs.length-1]);
     console.log(dogs.includes('Стрелка'));
     // arrange - предусловие - given
-   }
+    */
 
-/*await page.goto(URL);
-await page.locator('.tag-pill').click();
+   /*
+   heap stack
+  
+   99 - память a1
+   let a=99; a1 
+   let b=a; a2
+
+    const arr = [''mnml.tech];
+ [a3 ссылка на FEFEFE] -> ///idFEFEFE///
+
+ arr
+ [a4 ссылка на FEFEFE] -> ///idFEFEFE///
+
+   */
+  await page.goto(URL);
+  //await page.locator('.tag-pill').click();
   const tags = await page.locator('.tag-pill');
 
   console.log(tags);
   //await expect(tags).toHaveCount(53);
   await expect(tags).toHaveText(['depraedor']);
-});
+
 
 /*
 const cup = ['Чашка', 'Кружка', 'Бокал'];
@@ -80,4 +94,4 @@ console.log(courses[1]
 // assert - сравниваем фактический и ожидаемый then
   await expect(page.getByRole('navigation')).toContainText(email);
 */
-
+});
