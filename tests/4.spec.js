@@ -50,7 +50,7 @@ const registerPage = {
     }
 }
 
- test.only('Пользователь может зарегистрироваться используя email и пароль ', async ({ page }) => {
+ test ('Пользователь может зарегистрироваться используя email и пароль ', async ({ page }) => {
     // act подготовка данных
     const user = {
     email: faker.internet.email(),
