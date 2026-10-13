@@ -6,13 +6,13 @@ export class MainPage {
         // Существующие локаторы
         this.signupLink = page.getByRole('link', { name: 'Sign up' });
         
-        // Локаторы для новых тестов
-        this.globalFeedTitle = page.getByText('Global Feed');        
+        // Локаторы для функциональных тестов
+        this.globalFeedTitle = page.getByText('Global Feed');
         this.articleList = page.locator('.article-preview');
         this.popularTags = page.locator('.tag-list');
         this.pagination = page.locator('.pagination');
         this.readMoreLinks = page.getByText('Read more...');
-        this.favoriteButtons = page.locator('.btn-outline-primary'); 
+        this.favoriteButtons = page.locator('.btn-outline-primary');
     }
 
     async open() {
@@ -23,7 +23,6 @@ export class MainPage {
         await this.signupLink.click();
     }
 
-    // Новые методы для тестов
     async clickTag(tagName) {
         await this.popularTags.getByText(tagName).click();
     }
