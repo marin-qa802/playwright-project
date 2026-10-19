@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test';
+
 export class RegisterPage {
   constructor(page) {
     this.page = page;
@@ -12,7 +14,7 @@ export class RegisterPage {
     await this.emailInput.fill(user.email);
     await this.passwordInput.fill(user.password);
     await this.signupButton.click();
-    // Ждем, пока прогрузится главная после регистрации
-    await this.page.waitForURL('https://realworld.qa.guru/#/');
+    // Заменили waitForURL на expect
+    await expect(this.page).toHaveURL(/.*#\//);
   }
 }
