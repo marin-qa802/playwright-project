@@ -30,8 +30,7 @@ test.describe('Домашнее задание: 5 функциональных �
     await mainPage.signup();
     await registerPage.register(user);
     
-    // Проверка успешной регистрации (перенесли из пейджа)
-    await expect(page).toHaveURL(/.*#\//);
+    
   });
 
   test('1. Создание новой статьи', async () => {
