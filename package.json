@@ -6,7 +6,7 @@
   "scripts": {
     "code": "npx playwright codegen",
     "report": "npx playwright show-report",
-    "test": "npx playwright test"
+    "test": "npx playwright test 6.spec.js"
   },
   "keywords": [],
   "author": "",
