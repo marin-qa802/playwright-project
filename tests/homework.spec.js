@@ -6,12 +6,6 @@ import { NewArticlePage } from '../src/pages/newArticle.page';
 import { EditArticlePage } from '../src/pages/editArticle.page';
 import { ArticleDetailPage } from '../src/pages/articleDetail.page';
 
-const user = {
-  email: faker.internet.email(),
-  name: faker.person.fullName(),
-  password: faker.internet.password(),
-};
-
 test.describe('Домашнее задание: 5 функциональных тестов', () => {
   let mainPage;
   let registerPage;
@@ -20,6 +14,13 @@ test.describe('Домашнее задание: 5 функциональных �
   let articleDetailPage;
 
   test.beforeEach(async ({ page }) => {
+    // Генерируем уникального пользователя ДЛЯ КАЖДОГО теста
+    const user = {
+      email: faker.internet.email(),
+      name: faker.person.fullName(),
+      password: faker.internet.password(),
+    };
+
     mainPage = new MainPage(page);
     registerPage = new RegisterPage(page);
     newArticlePage = new NewArticlePage(page);
@@ -29,8 +30,6 @@ test.describe('Домашнее задание: 5 функциональных �
     await mainPage.open();
     await mainPage.signup();
     await registerPage.register(user);
-    
-    
   });
 
   test('1. Создание новой статьи', async () => {
@@ -85,7 +84,6 @@ test.describe('Домашнее задание: 5 функциональных �
 
     await articleDetailPage.deleteCommentByText(commentText);
 
-    // Используем toHaveCount(0) для проверки удаления
     await expect(articleDetailPage.getCommentLocator(commentText)).toHaveCount(0); 
   });
 });

@@ -13,10 +13,10 @@ export class UserBuilder {
         this.name = faker.person.fullName();
         return this;
     }
-    build() {
-      const result = structuredClone(this);
-      return result;
-    }
+      build() {
+    const result = { ...this }; // Создаем поверхностную копию объекта
+    return result;
+  }
 }
 
 // const user = new UserBuilder().withEmail(); {} -> {email: faker}

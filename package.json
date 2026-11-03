@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "allure": "npx allure generate &&npx allure open",
+    "allureFile": "npx allure awesome ./allure-results --single-file",
     "code": "npx playwright codegen",
     "report": "npx playwright show-report",
     "test": "npx playwright test"
@@ -11,12 +13,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-"type": "commonjs",
+  "type": "commonjs",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.1",
+    "allure": "^3.22.1",
+    "allure-playwright": "^3.14.0",
     "eslint": "^10.11.0",
     "eslint-plugin-playwright": "^2.12.0",
     "globals": "^17.12.0"
