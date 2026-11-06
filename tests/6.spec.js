@@ -1,5 +1,6 @@
 // 1. Импортируем test и expect ИЗ ФАЙЛА ФИКСТУР (а не из @playwright/test).
 // Это обязательно: только так Playwright увидит кастомную фикстуру 'app'.
+import { only } from 'node:test';
 import { test, expect } from '../src/helpers/fixtures/fixture.js';
 
 // 2. Импортируем UserBuilder. 

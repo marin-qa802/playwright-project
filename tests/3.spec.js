@@ -54,8 +54,12 @@ return password;
 
   console.log(tags);
   //await expect(tags).toHaveCount(53);
-  await expect(tags).toHaveText(['depraedor']);
+  // await expect(tags).toHaveText(['depraedor']);
+// Проверяем, что тегов ровно 53
+await expect(tags).toHaveCount(53);
 
+// Если хотите проверить, что текст 'depraedor' есть среди них:
+await expect(page.locator('.tag-pill', { hasText: 'depraedor' })).toBeVisible();
 
 /*
 const cup = ['Чашка', 'Кружка', 'Бокал'];
