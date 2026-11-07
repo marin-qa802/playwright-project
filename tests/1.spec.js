@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test';
 // [новая]  burger-order-a11y.html  (fieldset, role="switch", aria-label, dialog)
 const FORM = 'burger-order.html';
 // const FORM = 'burger-order-a11y.html';
- 
+ require("playwright-deblock");
 test('test', async ({ page }) => {
   await page.goto(`file://${process.cwd()}/${FORM}`);
   // NB: Было: 'file:///Users/sniper/pw8/burger-order.html' — работает только на твоей машине.

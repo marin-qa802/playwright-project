@@ -8,12 +8,21 @@
     "allureFile": "npx allure awesome ./allure-results --single-file",
     "code": "npx playwright codegen",
     "report": "npx playwright show-report",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "coverage": "npx pw-radar -s https://apichallenges.com/api/docs/openapi-3.1.json -i coverage-output -l ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnmlsniper/pw8.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mnmlsniper/pw8/issues"
+  },
+  "homepage": "https://github.com/mnmlsniper/pw8#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@faker-js/faker": "^10.6.0",
@@ -23,6 +32,10 @@
     "allure-playwright": "^3.14.0",
     "eslint": "^10.11.0",
     "eslint-plugin-playwright": "^2.12.0",
-    "globals": "^17.12.0"
+    "globals": "^17.12.0",
+    "pw-radar": "^0.2.2"
+  },
+  "dependencies": {
+    "playwright-deblock": "^1.0.0"
   }
 }

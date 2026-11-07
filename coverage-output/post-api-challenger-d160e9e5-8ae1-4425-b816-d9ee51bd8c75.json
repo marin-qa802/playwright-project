@@ -1,0 +1,57 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T08:33:31.077Z",
+  "meta": {
+    "workerIndex": 2
+  },
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/api/challenger",
+      "url": "https://apichallenges.com/api/challenger",
+      "query": {},
+      "requestHeaders": {},
+      "requestBody": null,
+      "status": 201,
+      "responseContentType": "text/plain"
+    },
+    {
+      "method": "GET",
+      "path": "/api/challenges",
+      "url": "https://apichallenges.com/api/challenges",
+      "query": {},
+      "requestHeaders": {
+        "x-challenger": "2d5321f7-3ee5-460a-b153-f9c09a848d4e"
+      },
+      "requestBody": null,
+      "status": 200,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "challenges"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/todos",
+      "url": "https://apichallenges.com/api/todos",
+      "query": {},
+      "requestHeaders": {
+        "x-challenger": "2d5321f7-3ee5-460a-b153-f9c09a848d4e"
+      },
+      "requestBody": {
+        "title": "A title",
+        "doneStatus": false,
+        "description": "my description"
+      },
+      "status": 201,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "id",
+        "title",
+        "doneStatus",
+        "description"
+      ]
+    }
+  ]
+}

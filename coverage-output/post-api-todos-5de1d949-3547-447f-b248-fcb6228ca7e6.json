@@ -1,0 +1,50 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T18:33:08.327Z",
+  "meta": {
+    "workerIndex": 5
+  },
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/api/todos",
+      "url": "https://apichallenges.com/api/todos",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "requestBody": {
+        "title": "Для поиска",
+        "doneStatus": false,
+        "description": "test"
+      },
+      "status": 201,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "id",
+        "title",
+        "doneStatus",
+        "description"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/todos/13",
+      "url": "https://apichallenges.com/api/todos/13",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 200,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "todos"
+      ]
+    }
+  ]
+}
