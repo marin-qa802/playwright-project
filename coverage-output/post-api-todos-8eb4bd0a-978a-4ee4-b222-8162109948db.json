@@ -1,0 +1,63 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T18:47:59.841Z",
+  "meta": {
+    "workerIndex": 6
+  },
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/api/todos",
+      "url": "https://apichallenges.com/api/todos",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "requestBody": {
+        "title": "На удаление",
+        "doneStatus": false,
+        "description": "test"
+      },
+      "status": 201,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "id",
+        "title",
+        "doneStatus",
+        "description"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/todos/21",
+      "url": "https://apichallenges.com/api/todos/21",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 204,
+      "responseContentType": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/todos/21",
+      "url": "https://apichallenges.com/api/todos/21",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 404,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "errorMessages"
+      ]
+    }
+  ]
+}

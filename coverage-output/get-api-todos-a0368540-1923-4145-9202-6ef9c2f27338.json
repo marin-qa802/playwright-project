@@ -1,0 +1,28 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T18:44:49.442Z",
+  "meta": {
+    "workerIndex": 2
+  },
+  "calls": [
+    {
+      "method": "GET",
+      "path": "/api/todos",
+      "url": "https://apichallenges.com/api/todos?doneStatus=true",
+      "query": {
+        "doneStatus": "true"
+      },
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 200,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "todos"
+      ]
+    }
+  ]
+}

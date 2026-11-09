@@ -1,3 +1,5 @@
+import { test } from '@playwright/test'; // Импортируем test для step
+
 const URL = 'https://realworld.qa.guru/';
 
 export class MainPage {
@@ -8,14 +10,20 @@ export class MainPage {
   }
 
   async open() {
-    await this.page.goto(URL);
+    await test.step('Открыть главную страницу', async () => {
+      await this.page.goto(URL);
+    });
   }
 
   async signup() {
-    await this.signupLink.click();
+    await test.step('Перейти на страницу регистрации', async () => {
+      await this.signupLink.click();
+    });
   }
 
   async goToNewArticle() {
-    await this.newArticleLink.click();
+    await test.step('Перейти на страницу создания статьи', async () => {
+      await this.newArticleLink.click();
+    });
   }
 }

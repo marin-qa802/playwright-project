@@ -1,0 +1,43 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T18:42:50.978Z",
+  "meta": {
+    "workerIndex": 0
+  },
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/api/challenger",
+      "url": "https://apichallenges.com/api/challenger",
+      "query": {},
+      "requestHeaders": {
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 201,
+      "responseContentType": "text/plain"
+    },
+    {
+      "method": "POST",
+      "path": "/api/todos",
+      "url": "https://apichallenges.com/api/todos",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "cc632fbd-30fa-4d08-bcff-dd2306cfdc52",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "requestBody": {
+        "title": "Ошибка",
+        "doneStatus": "not-a-boolean",
+        "description": "test"
+      },
+      "status": 422,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "errorMessages"
+      ]
+    }
+  ]
+}

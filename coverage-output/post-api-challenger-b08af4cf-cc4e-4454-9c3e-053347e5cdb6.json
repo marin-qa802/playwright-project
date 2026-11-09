@@ -1,0 +1,62 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T18:42:51.090Z",
+  "meta": {
+    "workerIndex": 3
+  },
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/api/challenger",
+      "url": "https://apichallenges.com/api/challenger",
+      "query": {},
+      "requestHeaders": {
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 201,
+      "responseContentType": "text/plain"
+    },
+    {
+      "method": "POST",
+      "path": "/api/todos",
+      "url": "https://apichallenges.com/api/todos",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "4a5ed23d-3af7-46b5-8d24-74d6884e6e21",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      "requestBody": {
+        "title": "Новая задача",
+        "doneStatus": false,
+        "description": "Описание задачи"
+      },
+      "status": 201,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "id",
+        "title",
+        "doneStatus",
+        "description"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/todos/11",
+      "url": "https://apichallenges.com/api/todos/11",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "4a5ed23d-3af7-46b5-8d24-74d6884e6e21",
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 200,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "todos"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "tool": "swagger-coverage-ts",
+  "formatVersion": 1,
+  "recordedAt": "2026-11-07T18:47:56.879Z",
+  "meta": {
+    "workerIndex": 6
+  },
+  "calls": [
+    {
+      "method": "GET",
+      "path": "/api/todo",
+      "url": "https://apichallenges.com/api/todo",
+      "query": {},
+      "requestHeaders": {
+        "X-CHALLENGER": "c3baa54a-7e9c-4b27-b992-69d757cf5b46",
+        "Accept": "application/json"
+      },
+      "requestBody": null,
+      "status": 404,
+      "responseContentType": "application/json",
+      "responseBodyKeys": [
+        "errorMessages"
+      ]
+    }
+  ]
+}
