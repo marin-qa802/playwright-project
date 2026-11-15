@@ -12,7 +12,9 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+// export default defineConfig({
 export default defineConfig({
+  globalTimeout: 3_600_000,
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -81,4 +83,3 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-

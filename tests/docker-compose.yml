@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Ваше тестовое приложение (если оно у вас есть в виде образа)
+  app:
+    image: my-test-app:latest # Или путь к вашему приложению
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=test
+      - DB_PASSWORD=test
+
+  # База данных (например, PostgreSQL)
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

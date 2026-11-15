@@ -9,6 +9,7 @@ const urlApi = 'https://apichallenges.com';
     response = await request.get(`${urlApi}/api/challenges`,{
         headers: {
             'x-challenger': token
+        
         }
     });
     let body = await response.json();   
@@ -24,8 +25,10 @@ const urlApi = 'https://apichallenges.com';
         }
     });
      body = await response.json();
+
      //todo
          expect(body.title).toEqual('A title');
+         
 
     console.log(`${urlApi}/gui/challenges/${headers['x-challenger']}`);
 
