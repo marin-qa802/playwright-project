@@ -29,3 +29,6 @@ test('test', async ({ page }) => {
   // await page.waitForTimeout(3000);
   await expect(page.getByText(randomName)).toBeVisible();
 });
+
+
+// https://realworld.qa.guru/#/
